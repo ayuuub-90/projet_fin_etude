@@ -88,38 +88,38 @@ const DashBoard = () => {
 
   return (
     <>
-      <h1 className="text-2xl font-medium mb-6">Dashboard</h1>
-      <section className="h-[570px] overflow-hidden overflow-y-auto">
-        <div className="w-full flex justify-around">
-          <div className="rounded-lg bg-gray-100 p-5 w-[20rem] mt-5">
-            <div className="font-bold rounded-full w-[3rem] bg-[#00E396] text-center p-3">
+      <h1 className="text-2xl font-medium mb-6 max-md:mb-3">Dashboard</h1>
+      <section className="h-[570px] overflow-auto">
+        <div className="w-full flex justify-around max-md:text-sm">
+          <div className="rounded-lg max-md:rounded-none bg-gray-100 p-5 w-[20rem] mt-5 max-md:mt-0">
+            <div className="font-bold rounded-full w-[3rem] max-md:size-10 bg-[#00E396] text-center p-3">
               $
             </div>
 
             <p className="mt-5">Sales</p>
-            <h1 className="text-xl font-bold">
+            <h1 className="text-xl max-md:text-sm font-bold">
               $ {sales?.totalSales.toFixed(2)}
             </h1>
           </div>
-          <div className="rounded-lg bg-gray-100 p-5 w-[20rem] mt-5">
-            <div className="font-bold rounded-full w-[3rem] bg-[#00E396] text-center p-3">
+          <div className="rounded-lg max-md:rounded-none bg-gray-100 p-5 w-[20rem] mt-5 max-md:mt-0">
+            <div className="font-bold rounded-full w-[3rem] max-md:size-10 bg-[#00E396] text-center p-3">
               $
             </div>
 
             <p className="mt-5">Customers</p>
-            <h1 className="text-xl font-bold">{customers?.length}</h1>
+            <h1 className="text-xl max-md:text-sm font-bold">{customers?.length}</h1>
           </div>
-          <div className="rounded-lg bg-gray-100 p-5 w-[20rem] mt-5">
-            <div className="font-bold rounded-full w-[3rem] bg-[#00E396] text-center p-3">
+          <div className="rounded-lg max-md:rounded-none bg-gray-100 p-5 w-[20rem] mt-5 max-md:mt-0">
+            <div className="font-bold rounded-full w-[3rem] max-md:size-10 bg-[#00E396] text-center p-3">
               $
             </div>
 
             <p className="mt-5">All Orders</p>
-            <h1 className="text-xl font-bold">{orders?.totalOrders}</h1>
+            <h1 className="text-xl max-md:text-sm font-bold">{orders?.totalOrders}</h1>
           </div>
         </div>
 
-        <div className="mt-10 ml-10 ">
+        <div className="mt-10 ml-10 max-md:m-1 max-md:mt-4 max-md:w-full">
           <Chart
             options={state.options}
             series={state.series}
@@ -128,7 +128,7 @@ const DashBoard = () => {
           />
         </div>
 
-        <div className="mt-[4rem] mx-2">
+        <div className="mt-[4rem] mx-2 max-md:mt-4">
           <OrderList />
         </div>
       </section>

@@ -6,7 +6,7 @@ const generateToken = (res, userID) => {
   });
 
   res.cookie("jwt", token, {
-    httpOnly: true,
+    // httpOnly: true,
     secure: process.env.JWT_ACCESS !== "developement",
     sameSite: "strict",
     maxAge: 30 * 24 * 3600 * 1000,

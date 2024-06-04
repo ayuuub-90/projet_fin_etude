@@ -7,6 +7,7 @@ import {
   useMarkOrderAsDelivredMutation,
   useMarkOrderAsPaidMutation,
 } from "../../redux/api/orderApiSlice.js";
+import Navigation from "../Navigation.jsx";
 import { useEffect } from "react";
 
 const Order = () => {
@@ -48,17 +49,19 @@ const Order = () => {
 
 return (
     <>
-      <div className="text-3xl font-bold tracking-wider ml-[10rem] my-5">
+    <Navigation />
+      <div className="text-3xl max-md:text-xl font-bold tracking-wider ml-[10rem] max-md:mx-4 my-5">
         Order Details
       </div>
-      <div className="container flex flex-col ml-[10rem] md:flex-row">
+      <hr />
+      <div className="container flex flex-col ml-[10rem] max-md:mx-1 md:flex-row">
         <div className="md:w-2/3 pr-4">
-          <div className="mt-5 pb-4 mb-5 shadow-lg">
+          <div className="mt-5 max-md:mt-1 pb-4 mb-5 shadow-lg">
             {order?.order_items.length === 0 ? (
               <label>Order is empty</label>
             ) : (
               <div className="overflow-x-auto">
-                <table className="w-[80%]">
+                <table className="w-[80%] max-md:w-full max-md:text-sm">
                   <thead className="">
                     <tr>
                       <th className="p-2">Image</th>
@@ -100,8 +103,8 @@ return (
           </div>
         </div>
 
-        <div className="md:w-1/3 shadow-md p-4">
-          <div className="mt-5 border-gray-300 pb-4 mb-4">
+        <div className="md:w-1/3 shadow-md p-4 max-md:text-sm">
+          <div className="mt-5 border-gray-300 pb-4 mb-4 max-md:text-sm">
             <h2 className="text-xl font-bold mb-2">Shipping</h2>
             <p className="mb-4 mt-4">
               <strong className="">Order:</strong> {order?._id}

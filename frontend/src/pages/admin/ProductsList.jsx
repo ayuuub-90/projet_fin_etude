@@ -40,58 +40,63 @@ const ProductsList = () => {
 
   return (
     <>
-      <h2 className="text-2xl font-medium mb-4">Products</h2> <hr />
+      <h2 className="text-2xl font-medium mb-4 max-md:mb-2">Products</h2> <hr />
       <div
-        className="h-[500px] overflow-hidden overflow-y-auto"
+        className="h-[500px] max-md:h-[450px] overflow-auto"
         onClick={() => {
           isOpened ? setIsOpened(false) : "";
         }}
       >
-        <p className="font-medium mt-2">Products ({size})</p>
-        {!products?.length ? (<><div className="font-medium text-xl text-gray-700 text-center">
-                there is no products right now, <b>CREATE ONE</b>
-              </div></>) : (<div className=" mb-10 mt-4 ">
-          {products?.map((product) => (
-            <div key={product._id} className="flex">
-              <Product product={product} />
-              <div
-                className="relative flex items-center justify-center hover:bg-gray-50 text-gray-600 cursor-pointer w-[50px] "
-                onClick={() => {
-                  setIsOpened(!isOpened);
-                  setProductId(product._id);
-                }}
-              >
-                <CgDetailsMore />
-                {isOpened && productId === product._id && (
-                  <>
-                    <div className="absolute bg-white rounded top-0 right-[30px] w-[180px] h-[80px] shadow-[0_3px_10px_rgb(0,0,0,0.2)] ">
-                      <div className="flex flex-col border h-full">
-                        <Link
-                          to={`update-product/${product._id}`}
-                          className="h-[50%] flex items-center pl-2 hover:bg-gray-50 font-medium"
-                        >
-                          UPDATE PRODUCT
-                        </Link>
-                        <Link
-                          className="h-[50%] flex items-center pl-2 hover:bg-gray-50 font-medium"
-                          onClick={() => {
-                            handleDelete(productId);
-                          }}
-                        >
-                          DELETE PRODUCT
-                        </Link>
-                      </div>
-                    </div>
-                  </>
-                )}
-              </div>
+        <p className="font-medium mt-2 max-md:mt-1">Products ({size})</p>
+        {!products?.length ? (
+          <>
+            <div className="font-medium text-xl text-gray-700 text-center">
+              there is no products right now, <b>CREATE ONE</b>
             </div>
-          ))}
-        </div>)}
-        
+          </>
+        ) : (
+          <div className=" mb-10 mt-4 max-md:my-1">
+            {products?.map((product) => (
+              <div key={product._id} className="flex">
+                <Product product={product} />
+                <div
+                  className="relative flex items-center justify-center hover:bg-gray-50 text-gray-600 cursor-pointer w-[50px] "
+                  onClick={() => {
+                    setIsOpened(!isOpened);
+                    setProductId(product._id);
+                  }}
+                >
+                  <CgDetailsMore />
+                  {isOpened && productId === product._id && (
+                    <>
+                      <div className="absolute bg-white rounded top-0 right-[30px] w-[180px] h-[80px] shadow-[0_3px_10px_rgb(0,0,0,0.2)] ">
+                        <div className="flex flex-col border h-full">
+                          <Link
+                            to={`update-product/${product._id}`}
+                            className="h-[50%] flex items-center pl-2 hover:bg-gray-50 font-medium"
+                          >
+                            UPDATE PRODUCT
+                          </Link>
+                          <Link
+                            className="h-[50%] flex items-center pl-2 hover:bg-gray-50 font-medium"
+                            onClick={() => {
+                              handleDelete(productId);
+                            }}
+                          >
+                            DELETE PRODUCT
+                          </Link>
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
-      <Link to={"add-product"} className="mt-4">
-        <button className="bg-black text-white w-[200px] mt-4 rounded hover:bg-gray-900 h-[40px]">
+      <Link to={"add-product"} className="mt-4 ">
+        <button className="bg-black text-white w-[200px] max-md:center max-md:w-full mt-4 rounded hover:bg-gray-900 h-[40px]">
           Create New Product
         </button>
       </Link>

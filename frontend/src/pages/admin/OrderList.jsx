@@ -6,30 +6,30 @@ const OrderList = () => {
 
   return (
     <>
-      <h2 className="text-2xl font-medium mb-6">Orders</h2>
-      <div className="h-[540px] overflow-hidden overflow-y-auto ">
-        <table className="w-full">
-          <thead className="text-gray-700 my-4 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <h2 className="text-2xl font-medium mb-6 max-md:m-3">Orders</h2>
+      <div className="h-[540px] overflow-auto ">
+        <table className="w-full max-md:text-sm">
+          <thead className="text-gray-700 my-4 bg-gray-50">
             <tr>
-              <th className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-left">
+              <th className="font-semibold text-gray-600 px-4 py-2 text-left">
                 ITEMS
               </th>
-              <th className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-left">
+              <th className="font-semibold text-gray-600 px-4 py-2 text-left">
                 ID
               </th>
-              <th className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-left">
+              <th className="font-semibold text-gray-600 px-4 py-2 text-left">
                 USER
               </th>
-              <th className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-left">
+              <th className="font-semibold text-gray-600 px-4 py-2 text-left">
                 DATE
               </th>
-              <th className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-left">
+              <th className="font-semibold text-gray-600 px-4 py-2 text-left">
                 TOTAL
               </th>
-              <th className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-center">
+              <th className="font-semibold text-gray-600 px-4 py-2 text-center">
                 PAID
               </th>
-              <th className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-left">
+              <th className="font-semibold text-gray-600 px-4 py-2 text-left">
                 DELIVERED
               </th>
               <th></th>

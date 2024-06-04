@@ -87,14 +87,14 @@ const CategoriesList = () => {
   };
   return (
     <>
-      <h2 className="text-2xl font-medium mb-6">Categories</h2>
-      <div className=" my-10 flex">
+      <h2 className="text-2xl font-medium mb-6 max-md:mb-2">Categories</h2>
+      <div className="max-md:text-sm my-10 max-md:my-1 flex">
         <input
           type="text"
           placeholder="enter category name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="p-2 mr-2 rounded-md w-full outline-none bg-gray-50"
+          className="p-2 mr-2 max-md:m-0 rounded-md w-full outline-none bg-gray-50"
         />
         <input
           type="file"
@@ -126,19 +126,19 @@ const CategoriesList = () => {
             </div>
           </>
         ) : (
-          <table className="w-full">
-            <thead className="text-gray-700 my-4 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <table className="w-full max-md:text-sm overflow-auto">
+            <thead className="text-gray-700 my-4 bg-gray-50">
               <tr>
-                <td className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-left">
+                <td className="font-semibold px-4 py-2 text-left">
                   Category No
                 </td>
-                <td className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-left">
+                <td className="font-semibold px-4 py-2 text-left">
                   Category Name
                 </td>
-                <td className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-left">
+                <td className="font-semibold px-4 py-2 text-left">
                   Date Created
                 </td>
-                <td className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-left">
+                <td className="font-semibold px-4 py-2 text-left">
                   Action
                 </td>
               </tr>

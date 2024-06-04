@@ -97,16 +97,16 @@ const UpdateProduct = () => {
   return (
     <>
       <Navigation />
-      <div className="flex justify-center items-center h-[96vh]">
-        <div className="relative w-[1250px] flex flex-row h-[700px] bg-white rounded shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px] ">
+      <div className="flex justify-center items-center h-[96vh] max-md:h-auto">
+        <div className="relative w-[1250px] max-md:w-full flex flex-row max-md:flex-col h-[700px] bg-white rounded shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px] max-md:shadow-none">
           <div
-            className="absolute top-3 right-3 text-gray-400 cursor-pointer size-3 "
+            className="absolute top-3 right-3 text-gray-400 cursor-pointer size-3 max-md:hidden "
             onClick={() => navigate(-1)}
           >
             <IoMdClose />
           </div>
-          <div className="bg-gray-100 h-full w-[430px]">
-            <div className="h-[430px] w-[430px] flex justify-between items-center flex-col ">
+          <div className="bg-gray-100 h-full w-[430px] max-md:w-full">
+            <div className="h-[430px] max-md:h-full max-md:pb-6 w-[430px] max-md:w-full flex justify-between items-center flex-col ">
               {image1 ? (
                 <img
                   src={image1}
@@ -197,9 +197,9 @@ const UpdateProduct = () => {
 
             </div>
           </div>
-          <div className="bg-white h-full w-[830px]">
-            <form className="m-6 mt-[3rem]" onSubmit={handleUpdate}>
-              <h2 className="text-2xl font-medium mb-2">PRODUCT DETAILS</h2>
+          <div className="bg-white h-full w-[830px] max-md:w-full">
+            <form className="m-6 mt-[3rem] max-md:m-4 max-md:text-sm" onSubmit={handleUpdate}>
+              <h2 className="text-2xl max-md:text-xl font-medium mb-2">PRODUCT DETAILS</h2>
 
               <label className="text-gray-500">product name: *</label>
               <input

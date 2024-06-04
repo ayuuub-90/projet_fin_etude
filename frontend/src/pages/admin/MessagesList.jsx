@@ -23,8 +23,8 @@ const MessagesList = () => {
 
   return (
     <>
-      <h2 className="text-2xl font-medium mb-6">Reclamations</h2>
-      <div className="h-[430px] overflow-hidden overflow-y-auto">
+      <h2 className="text-2xl font-medium mb-6 max-md:mb-3">Reclamations</h2>
+      <div className="h-[430px] overflow-auto">
         {!messages?.length ? (
           <>
             <div className="font-medium text-xl text-gray-700 text-center">
@@ -32,28 +32,28 @@ const MessagesList = () => {
             </div>
           </>
         ) : (
-          <table className="w-full">
-            <thead className="text-gray-700 my-4 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <table className="w-full max-md:text-sm">
+            <thead className="text-gray-700 my-4 bg-gray-50">
               <tr>
-                <td className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-left">
+                <td className="font-semibold px-4 py-2 text-left">
                   Reclamation No
                 </td>
-                <td className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-left">
+                <td className="font-semibold px-4 py-2 text-left">
                   Full name
                 </td>
-                <td className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-left">
+                <td className="font-semibold px-4 py-2 text-left">
                   Email
                 </td>
-                <td className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-left">
+                <td className="font-semibold px-4 py-2 text-left">
                   Reason
                 </td>
-                <td className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-left">
+                <td className="font-semibold px-4 py-2 text-left">
                   Content
                 </td>
-                <td className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-left">
+                <td className="font-semibold px-4 py-2 text-left">
                   Date
                 </td>
-                <td className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-left">
+                <td className="font-semibold px-4 py-2 text-left">
                   Delete
                 </td>
               </tr>
@@ -62,7 +62,7 @@ const MessagesList = () => {
               {messages?.map((message) => (
                 <tr
                   key={message._id}
-                  className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 even:bg-gray-50 even:dark:bg-gray-800"
+                  className="bg-white border-b "
                 >
                   <td
                     className="font-semibold px-4 py-2 text-left text-gray-500"

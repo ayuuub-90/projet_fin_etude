@@ -34,8 +34,8 @@ const PubsList = () => {
 
   return (
     <>
-      <h2 className="text-2xl font-medium mb-6">Products Pub</h2>
-      <div className="h-[480px] overflow-hidden overflow-y-auto ">
+      <h2 className="text-2xl font-medium mb-6 max-md:mb-2">Products Pub</h2>
+      <div className="h-[480px] max-md:h-[450px] overflow-auto ">
         {!pubs?.length ? (
           <>
             <div className="font-medium text-xl text-gray-700 text-center">
@@ -84,7 +84,7 @@ const PubsList = () => {
         )}
       </div>
       <Link to={"add-pub"} className="mt-4">
-        <button className="bg-black text-white w-[200px] mt-4 rounded hover:bg-gray-900 h-[40px]">
+        <button className="bg-black text-white w-[200px] max-md:center max-md:w-full mt-4 rounded hover:bg-gray-900 h-[40px]">
           Create New Pub
         </button>
       </Link>

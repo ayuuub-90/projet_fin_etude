@@ -74,15 +74,15 @@ const UpdatePub = () => {
       <>
        <Navigation />
         <div className="flex justify-center items-center h-[96vh]">
-          <div className="relative w-[1050px] flex flex-row h-[700px] bg-white rounded shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px] ">
+          <div className="relative w-[1050px] flex flex-row max-md:flex-col h-[700px] bg-white rounded shadow-[rgba(0,_0,_0,_0.25)_0px_25px_50px_-12px] max-md:shadow-none">
             <div
-              className="absolute top-3 right-3 text-gray-400 cursor-pointer size-3 "
+              className="absolute top-3 right-3 text-gray-400 cursor-pointer size-3 max-md:hidden "
               onClick={closeProfile}
             >
               <IoMdClose />
             </div>
-            <div className="bg-gray-100 h-full w-[430px]">
-              <div className="h-[430px] w-[430px] flex justify-between items-center flex-col ">
+            <div className="bg-gray-100 h-full w-[430px] max-md:w-full">
+              <div className="h-[430px] w-[430px] max-md:w-full flex justify-between items-center flex-col max-md:mb-6">
                 {image ? (
                   <img
                     src={image}
@@ -103,22 +103,23 @@ const UpdatePub = () => {
                   hidden
                 />
                 <label
-                  htmlFor="input-file"
-                  className="mt-10 bg-black text-white w-[300px] rounded hover:bg-gray-900 h-[50px] justify-center flex items-center cursor-pointer"
-                >
-                  CHANGE IMAGE PUB
-                </label>
-                <button
-                  className="absolute bottom-[100px] bg-black text-white w-[300px] rounded hover:bg-gray-900 h-[50px]"
-                  onClick={handleUpdate}
-                >
-                  UPDATE PUB
-                </button>
+                htmlFor="input-file"
+                className="mt-10 bg-black text-white w-[300px] rounded hover:bg-gray-900 h-[50px] justify-center flex items-center cursor-pointer max-md:text-xs"
+              >
+                ADD IMAGE PUB
+              </label>
+              <button
+                className="absolute max-md:hidden bottom-[100px] bg-black text-white w-[300px] rounded hover:bg-gray-900 h-[50px]"
+                onClick={handleUpdate}
+              >
+                CREATE NEW PUB
+              </button>
               </div>
             </div>
+
             <div className="bg-white h-full w-full ">
-              <form className="m-6 mt-[3rem]" onSubmit={handleUpdate}>
-                <h2 className="text-2xl font-medium mb-6 ">PUB DETAILS</h2>
+              <form className="m-6 mt-[3rem] max-md:m-4 max-md:text-sm" onSubmit={handleUpdate}>
+                <h2 className="text-2xl max-md:text-xl font-medium mb-6 ">PUB DETAILS</h2>
 
                 <label className="text-gray-500">pub title: *</label>
                 <input
@@ -157,6 +158,12 @@ const UpdatePub = () => {
                     </option>
                   ))}
                 </select>
+                <button
+                className="bg-black text-white w-[300px] max-md:w-full max-md:mt-10 hidden max-md:block rounded hover:bg-gray-900 h-[50px] max-md:text-xs"
+                onClick={handleUpdate}
+              >
+                CREATE NEW PUB
+              </button>
               </form>
             </div>
           </div>

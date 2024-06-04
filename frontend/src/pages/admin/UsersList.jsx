@@ -50,27 +50,27 @@ const AllUsers = () => {
 
   return (
     <>
-      <h2 className="text-2xl font-medium mb-6">Customers</h2>
-      <div className="h-[540px] overflow-hidden overflow-y-auro ">
-        <table className="w-full">
-          <thead className="text-gray-700 my-4 bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+      <h2 className="text-2xl font-medium mb-6 max-md:m-3">Customers</h2>
+      <div className="h-[540px] overflow-auto ">
+        <table className="w-full text-sm">
+          <thead className="text-gray-700 my-4 bg-gray-50">
             <tr>
-              <td className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-left">
+              <td className="font-semibold text-gray-600 px-4 py-2 text-left">
                 Customer No
               </td>
-              <td className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-left">
+              <td className="font-semibold text-gray-600 px-4 py-2 text-left">
                 Full Name
               </td>
-              <td className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-left">
+              <td className="font-semibold text-gray-600 px-4 py-2 text-left">
                 Phone
               </td>
-              <td className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-left">
+              <td className="font-semibold text-gray-600 px-4 py-2 text-left">
                 Email
               </td>
-              <td className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-left">
+              <td className="font-semibold text-gray-600 px-4 py-2 text-left">
                 IsAdmin
               </td>
-              <td className="font-semibold text-gray-600 text-[20px] px-4 py-2 text-left">
+              <td className="font-semibold text-gray-600 px-4 py-2 text-left">
                 Action
               </td>
             </tr>
