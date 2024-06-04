@@ -11,6 +11,7 @@ import {
 } from "../redux/features/shop/shopSlice.js";
 import { useEffect, useState } from "react";
 import { IoSearchSharp } from "react-icons/io5";
+import { IoMdClose, IoMdMenu } from "react-icons/io";
 
 const Products = () => {
   const [search, setSearch] = useState("");
@@ -62,13 +63,25 @@ const Products = () => {
     dispatch(setChecked(updatedChecked));
   };
 
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+
   return (
     <div className="h-screen flex flex-col">
       <Navigation />
-      <div className="flex flex-1">
-        <div className="bg-gray-100 w-1/4 border-r">
-          <h1 className="px-6 py-4 font-bold text-lg">Filter</h1>
-          <div className="border-t">
+      <div className="flex flex-1 max-md:flex-col">
+        <div className="bg-gray-100 w-1/4 max-md:w-full border-r">
+          <div
+            className="flex justify-between items-center"
+            onClick={() => setIsFilterOpen(!isFilterOpen)}
+          >
+            <h1 className="px-6 py-4 font-bold text-lg max-md:text-sm">Filter</h1>
+            {isFilterOpen ? (
+              <IoMdMenu className="mr-4" />
+            ) : (
+              <IoMdClose className="mr-4" />
+            )}
+          </div>
+          <div className={`border-t ${isFilterOpen ? "hidden" : ""}`}>
             <div className="px-6 py-4">
               <h2 className="font-medium mb-2">Filter By Category</h2>
               {categories?.map((category) => (
@@ -121,13 +134,13 @@ const Products = () => {
         </div>
 
         <div className="flex-1 bg-white">
-          <div className="sticky top-0 bg-white border-b-2">
-            <h1 className="px-6 py-4 font-bold text-xl">
+          <div className="bg-white border-b-2">
+            <h1 className="px-6 py-4 font-bold text-xl max-md:text-sm">
               {products?.length
                 ? "Our Products"
                 : "There Are No Products In Stock"}
             </h1>
-            <div className="flex items-center mr-6">
+            <div className="flex items-center max-md:justify-center max-md:mb-4">
               <input
                 type="text"
                 placeholder="Search products here..."
@@ -143,7 +156,7 @@ const Products = () => {
               </button>
             </div>
           </div>
-          <div className="px-4 py-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="px-4 max-md:flex max-md:overflow-auto max-md:my-6 py-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {products
               ?.filter((item) =>
                 search.toLowerCase() === ""

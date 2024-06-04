@@ -91,7 +91,7 @@ const ProductDetails = () => {
       <Navigation />
 
       <div className="relative bg-gray-200">
-        <section className="bg-gray-200 w-full container mx-auto px-4 lg:px-0 py-8 lg:py-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+        <section className="bg-gray-200 w-full container px-4 lg:px-0 py-8 lg:py-12 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           <div className="relative bg-gray-200 lg:col-start-1 flex flex-col lg:flex-row gap-8 p-8 items-center">
             {product?.images &&
               product?.images?.image1 &&
@@ -100,7 +100,7 @@ const ProductDetails = () => {
                   id="image_secondaire"
                   className="lg:mr-8 flex-shrink-0 flex flex-col justify-center items-center"
                 >
-                  <div className="flex flex-col gap-4">
+                  <div className="flex flex-col max-md:flex-row gap-4">
                     {Object.entries(product.images).map(
                       ([, image], index) =>
                         image && (
@@ -118,7 +118,7 @@ const ProductDetails = () => {
                 </div>
               )}
 
-            <div className="flex justify-center items-center min-w-[400px] ">
+            <div className="flex justify-center items-center min-w-[400px] max-md:min-w-full ">
               <img
                 id="principaleImage"
                 src={product?.images.image1}
@@ -130,7 +130,7 @@ const ProductDetails = () => {
 
           <div className="bg-gray-200 flex flex-col">
             <div>
-              <h1 className="text-3xl lg:text-4xl font-semibold text-gray-800 mb-2">
+              <h1 className="text-3xl max-md:text-2xl font-semibold text-gray-800 mb-2">
                 {product?.name}
               </h1>
               <div className="flex items-center mb-[30px]">
@@ -163,9 +163,9 @@ const ProductDetails = () => {
               <p className="text-3xl lg:text-4xl font-bold text-violet-900 mb-4">
                 ${product?.price}
               </p>
-              <p className="text-lg text-gray-700 mb-6">
+              <p className="text-lg max-md:text-sm text-gray-700 mb-6">
                 {product?.description.substring(0, 780)}...{" "}
-                <span className="cursor-pointer font-medium ">see more</span>
+                {/* <span className="cursor-pointer font-medium ">see more</span> */}
               </p>
             </div>
 
@@ -196,16 +196,16 @@ const ProductDetails = () => {
               <div className="flex gap-4 mb-4 lg:mb-0">
                 <button
                   onClick={() => addHandler(Number(counter), product)}
-                  className="flex items-center justify-center h-12 w-52 bg-violet-900 text-white duration-100 hover:bg-blue-800 rounded-lg"
+                  className="flex items-center justify-center h-12 w-52 bg-violet-900 text-white duration-100 hover:bg-blue-800 rounded-lg max-md:text-sm"
                 >
-                  <BiShoppingBag className="w-6 h-6 mr-2" />
+                  <BiShoppingBag className="size-6 max-md:size-4 mr-2" />
                   Add to Cart
                 </button>
                 <button
                   onClick={addToFavrites}
-                  className="flex items-center justify-center h-12 w-52 bg-amber-400 duration-100 hover:bg-yellow-300 rounded-lg"
+                  className="flex items-center justify-center h-12 w-52 bg-amber-400 duration-100 hover:bg-yellow-300 rounded-lg max-md:text-sm"
                 >
-                  <AiOutlineHeart className="w-6 h-6 mr-2" />
+                  <AiOutlineHeart className="size-6 max-md:size-4 mr-2" />
                   Wishlist
                 </button>
               </div>
@@ -215,7 +215,7 @@ const ProductDetails = () => {
       </div>
 
       <div className="pb-10 bg-gray-50">
-        <div className="flex gap-6 justify-center pt-10 ">
+        <div className="flex gap-6 justify-center pt-10 max-md:text-sm">
           <h1
             onClick={() => setState(1)}
             className={`cursor-pointer ${
@@ -248,57 +248,57 @@ const ProductDetails = () => {
         )}
         {state === 2 && (
           <>
-            <div className="flex justify-center items-center flex-col m-10 gap-4">
-              <h1 className="text-left w-[800px] font-medium text-2xl pb-4">
+            <div className="flex justify-center items-center flex-col max-md:m-2 gap-4">
+              <h1 className="text-left w-[800px] max-md:w-full max-md:mt-4 font-medium text-2xl pb-4 max-md:pb-1">
                 All Reviews
               </h1>
               {product?.reviews?.map((review) => (
                 <div
                   key={Math.random()}
-                  className="w-[800px] bg-white shadow-sm md:shadow-lg rounded-lg "
+                  className="w-[800px] max-md:w-full bg-white shadow-sm md:shadow-lg rounded-lg "
                 >
                   <div className="flex mb-2">
-                    <FaUserCircle className="w-[60px] h-[60px] m-6 text-gray-200 " />
-                    <div className="mt-6 flex flex-col">
+                    <FaUserCircle className="w-[60px] h-[60px] max-md:size-10 max-md:m-2 m-6 text-gray-200 " />
+                    <div className="mt-6 max-md:mt-1 flex flex-col">
                       <div>
-                        <span className="font-medium text-[18px] ">
+                        <span className="font-medium text-[18px] max-md:text-sm">
                           {review.name}
                         </span>
                         {"   • "}
-                        <span className="text-gray-500 text-[15px]">
+                        <span className="text-gray-500 text-[15px] max-md:text-xs">
                           {moment(review.createdAt).fromNow()}{" "}
                         </span>
                         <div className="flex gap-1">
                           <FaStar
-                            className={`${
+                            className={`max-md:size-3 ${
                               review?.rating - 1 >= 0
                                 ? "text-yellow-300"
                                 : "text-gray-300"
                             }`}
                           />
                           <FaStar
-                            className={`${
+                            className={`max-md:size-3 ${
                               review?.rating - 2 >= 0
                                 ? "text-yellow-300"
                                 : "text-gray-300"
                             }`}
                           />
                           <FaStar
-                            className={`${
+                            className={`max-md:size-3 ${
                               review?.rating - 3 >= 0
                                 ? "text-yellow-300"
                                 : "text-gray-300"
                             }`}
                           />
                           <FaStar
-                            className={`${
+                            className={`max-md:size-3 ${
                               review?.rating - 4 >= 0
                                 ? "text-yellow-300"
                                 : "text-gray-300"
                             }`}
                           />
                           <FaStar
-                            className={`${
+                            className={`max-md:size-3 ${
                               review?.rating - 5 >= 0
                                 ? "text-yellow-300"
                                 : "text-gray-300"
@@ -307,7 +307,7 @@ const ProductDetails = () => {
                         </div>
                       </div>
                       <div className="mt-1">
-                        <div className="text-gray-800 text-[15px] max-w-[630px] mb-2 ">
+                        <div className="text-gray-800 text-[15px] max-md:text-sm max-w-[630px] mb-2 ">
                           {review.comment}{" "}
                         </div>
                       </div>
@@ -322,15 +322,15 @@ const ProductDetails = () => {
           <>
             {userInfo ? (
               <>
-                <div className="flex justify-center items-center flex-col m-10 gap-2">
-                  <h1 className="text-left w-[653px] font-medium text-2xl pb-4">
+                <div className="max-md:text-sm flex justify-center items-center flex-col m-10 max-md:m-2 gap-2">
+                  <h1 className="text-left w-[653px] max-md:w-full font-medium text-2xl pb-4 max-md:mt-4">
                     Add Review
                   </h1>
                   <select
                     placeholder="rating..."
                     value={rating}
                     onChange={(e) => setRating(e.target.value)}
-                    className="rounded p-4 w-[653px] outline-none focus:border shadow-sm md:shadow-lg text-gray-500"
+                    className="rounded p-4 w-[653px] max-md:w-full outline-none focus:border shadow-sm md:shadow-lg text-gray-500 max-md:text-xs"
                   >
                     <option value="0" selected>
                       --Select your rating--
@@ -344,11 +344,11 @@ const ProductDetails = () => {
                   <textarea
                     rows="8"
                     placeholder="message content..."
-                    className="text-gray-500 rounded p-4 resize-none outline-none focus:border w-[653px] shadow-sm md:shadow-lg"
+                    className="text-gray-500 rounded p-4 resize-none outline-none focus:border w-[653px] max-md:w-full shadow-sm md:shadow-lg"
                     value={comment}
                     onChange={(e) => setComment(e.target.value)}
                   ></textarea>
-                  <div className="flex gap-2 mt-4">
+                  <div className="flex gap-2 mt-4 max-md:w-full">
                     <button
                       className="w-[323px] p-2 bg-gray-500 text-white "
                       onClick={clear}

@@ -184,7 +184,7 @@ const getProductById = asyncHandler(async (req, res) => {
     return res.status(200).json(product);
   } catch (error) {
     res.status(500).json({ message: error.message });
-    console.log(error);
+    // console.log(error);
   }
 });
 
